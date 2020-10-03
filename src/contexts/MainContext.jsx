@@ -3,6 +3,11 @@ import React, {useState, createContext} from 'react';
 export const MainContext = createContext();
 
 export const MainProvider = (props) => {
+    const [content, setcContent] = useState({
+        easyMode: "Easy",
+        normalMode: "Normal",
+        hardMode: "Hard"
+    });
     const [user, setUser] = useState({
         gameType: "",
         name: ""
@@ -18,6 +23,8 @@ export const MainProvider = (props) => {
 
     return(
         <MainContext.Provider value={{
+            content: content,
+
             settingTypes: settingTypes,
             setSettingTypes: setSettingTypes,
 
@@ -34,7 +41,7 @@ export const MainProvider = (props) => {
             setScore: setScore,
 
             winners: winners,
-            setWinners: setWinners
+            setWinners: setWinners,
         }}>
             {props.children}
         </MainContext.Provider>

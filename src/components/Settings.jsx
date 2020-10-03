@@ -11,7 +11,8 @@ const Settings = () => {
         setGameState,
         gameState,
         setUser,
-        setScore
+        setScore,
+        content
     } = useContext(MainContext);
     const [allDataNeeded, setAllDataNeeded] = useState(false);
     const [currentUserData, setCurrentUserData] = useState({
@@ -92,7 +93,7 @@ const Settings = () => {
                             <option>Pick Game Mode</option>
                             {
                                 Object.keys(settingTypes).map((key, index) => (
-                                    <option value={key} key={index}>{key} + 1</option>
+                                    <option value={key} key={index}>{content[key]}</option>
                                 ))
                             }
                         </select>
